@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal.user = User.first
     if @goal.save
-      flash[:success] = "Goal was created successfuly"
+      flash[:success] = "Goal was created successfully"
       redirect_to goal_path(@goal)
     else
       render 'new'
