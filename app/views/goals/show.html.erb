@@ -1,0 +1,18 @@
+<%= render 'shared/pagetitle', title: @goal.name %>
+
+<div class="well col-md-8 col-md-offset-2">
+  
+  <h4 class="center description"><strong> Description: </strong> </h4>
+  <%= simple_format(@goal.description) %>
+  
+  <hr>
+  <div class="pull-right">
+  <p class="center">   <em> Created by:</em>
+  <%= link_to gravatar_for(@goal.user), goals_path %>
+  </p>
+  <p class="center">
+        <small><%= @goal.user.username.capitalize %></small>
+    </p>
+    <div class="pull-right">created: <%= time_ago_in_words(@goal.created_at) %> ago</div>
+  </p>
+</div>

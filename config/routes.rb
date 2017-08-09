@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get "pages/home", to: "pages#home"
   
   
-  get '/goals', to: 'goals#index'
+  resources :goals
+
+
+
   
 end
