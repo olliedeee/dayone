@@ -3,13 +3,22 @@ require 'test_helper'
 class GoalTest < ActiveSupport::TestCase
 
   def setup
-    @goal = Goal.new(name: "Fly to the moon", description: "Travel to the moon and walk on its surface")
+    @user = User.create!(username: "alongusername", email: "email@test.com")
+    @goal = @user.goals.build(name: "Climb everest", description: "climb mount everest by the time I am 30")
+
   end
   
   
-  test 'recipe should be valid' do
+  test 'goal without user should be invalid' do
+    @goal.user_id = nil
+    assert_not @goal.valid?
+  end
+  
+  test 'goal should be valid' do
     assert @goal.valid?
   end
+  
+  
   
   test 'name should be present' do
     @goal.name = " "
