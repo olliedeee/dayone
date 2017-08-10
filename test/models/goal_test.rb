@@ -3,7 +3,7 @@ require 'test_helper'
 class GoalTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.create!(username: "alongusername", email: "email@test.com")
+    @user = User.create!(username: "alongusername", email: "email@test.com", password:"password", password_confirmation:"password")
     @goal = @user.goals.build(name: "Climb everest", description: "climb mount everest by the time I am 30")
 
   end
