@@ -1,23 +1,4 @@
 <%= render 'shared/pagetitle', title: "All Goals" %>
 
 
-<% @goals.each do |goal| %>
-<div class = "row">
-  <div class="col-md-2"> 
-  <section class="user_info_center">
-  <%= link_to gravatar_for(goal.user, size:120) %>
-  <section> </div>
-  
-  <div class="col-md-8 well"> <br>
-    <h4>Goal Name: <%= link_to goal.name, goal_path(goal) %></h4><br>
-    <h4>Goal Description:<%= truncate(goal.description, length: 100) %></h4><br>
-    <p> <span class="quiet"> <small>Created: <%= time_ago_in_words(goal.created_at) %> ago by: <%= goal.user.username %></span></p><br> </small>
-    
-    <hr>
-  </div>
-</div><!-- end row -->
-
-
-
-
-<% end %>
+<%= render 'goal', obj: @goals %>
