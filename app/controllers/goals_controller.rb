@@ -1,5 +1,7 @@
 class GoalsController < ApplicationController
   
+  before_action :set_goal, only: [:edit, :show, :update]
+  
   def index
     @goals = Goal.all
   end
@@ -21,11 +23,9 @@ class GoalsController < ApplicationController
   
   
   def show
-    @goal = Goal.find(params[:id])
   end
   
   def edit
-   @goal = Goal.find(params[:id])
   end
 
 def destroy
@@ -35,19 +35,22 @@ def destroy
 end
   
   def update
-       @goal = Goal.find(params[:id])
        if @goal.update(goal_params)
         flash[:success] = "Goal updated successfully!"
         redirect_to goal_path(@goal)
        else
         render 'edit'
-      end
+       end
   end
   
   
   private
   def goal_params
     params.require(:goal).permit(:name, :description)
+  end
+  
+  def set_goal
+   @goal = Goal.find(params[:id])
   end
  
   
