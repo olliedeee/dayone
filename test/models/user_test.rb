@@ -76,6 +76,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
+  test "should delete user" do
+    @user.save
+    @user.goals.create!(name: "testing destroy", description:"testing destroy")
+    assert_difference 'Goal.count', -1 do
+      @user.destroy
+    end
+  end
 end
 
 

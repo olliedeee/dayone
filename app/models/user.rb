@@ -2,7 +2,7 @@ class User < ApplicationRecord
   
   before_save { self.email = email.downcase }
   before_save { self.username = username.downcase }
-  has_many :goals
+  has_many :goals, dependent: :destroy
   has_secure_password
 
   default_scope -> { order(updated_at: :desc) }

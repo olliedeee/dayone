@@ -13,6 +13,8 @@
           <li class="user-title"><%= link_to user.username.capitalize, 
                                          user_path(user) %></li>
     <li><small><%= pluralize(user.goals.count, "goal") if user.goals %> </small></li>
+    <li><%= link_to "delete this user", user_path(user), method: :delete,
+          data: {confirm: "are you sure you want to delete this user?"}  %></li>
         </div>
       </div>
     </ul>      
