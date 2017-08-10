@@ -1,5 +1,8 @@
 <%= render 'shared/pagetitle', title: "Showing all Users" %>
 
+<div align="center">
+  <%= will_paginate %>
+</div>
 
 <div align="center">
   <% @users.each do |user| %>

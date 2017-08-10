@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails-controller-testing'
+gem 'will_paginate', '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 
 # Use SCSS for stylesheets

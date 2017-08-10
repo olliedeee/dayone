@@ -5,6 +5,9 @@ class User < ApplicationRecord
   has_many :goals
   has_secure_password
 
+  default_scope -> { order(updated_at: :desc) }
+
+
   validates :password, presence:true, length: {minimum: 5, maximum: 120}, allow_nil: true
   validates :username, presence:true, length: {minimum: 2, maximum: 30}, uniqueness: {case_sensitive:false}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

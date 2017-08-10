@@ -3,7 +3,9 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:edit, :show, :update]
   
   def index
-    @goals = Goal.all
+    @goals = Goal.paginate(page: params[:page], per_page: 5)
+
+
   end
   
   def new
@@ -23,6 +25,7 @@ class GoalsController < ApplicationController
   
   
   def show
+  
   end
   
   def edit
