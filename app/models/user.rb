@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :goals, dependent: :destroy
   has_secure_password
 
-  default_scope -> { order(updated_at: :desc) }
 
 
   validates :password, presence:true, length: {minimum: 5, maximum: 120}, allow_nil: true
@@ -14,6 +13,7 @@ class User < ApplicationRecord
   validates :email, presence:true, length: {maximum: 130}, 
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: {case_sensitive:false}
+                    
 
 
 end
