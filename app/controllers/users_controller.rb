@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   
-
   def new
     @user = User.new
   end
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
     end
  end
 
-def create
+   def create
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome #{@user.username} to Day One"
@@ -31,7 +30,7 @@ def create
     else
       render 'new'
     end
-  end
+   end
   
   def show 
     @user = User.find(params[:id])
