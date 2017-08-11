@@ -24,18 +24,16 @@ class GoalsController < ApplicationController
   end
   
   
-  def show
   
-  end
   
   def edit
   end
 
-def destroy
-  Goal.find(params[:id]).destroy
-  flash[:success] = "Goal successfully deleted!"
-  redirect_to goals_path
-end
+  def destroy
+    @goal.destroy
+    flash[:success] = "Goal successfully deleted!"
+    redirect_to goals_path
+  end
   
   def update
        if @goal.update(goal_params)
@@ -46,8 +44,10 @@ end
        end
   end
   
+  def show
+  end
   
-  private
+private
   def goal_params
     params.require(:goal).permit(:name, :description)
   end
@@ -56,12 +56,12 @@ end
    @goal = Goal.find(params[:id])
   end
  
- def require_same_user
-   if current_user != @goal.user
-     flash[:danger] = "You can only edit or delete your own goals"
-     redirect_to goals_path
+   def require_same_user
+     if current_user != @goal.user
+       flash[:danger] = "You can only edit or delete your own goals"
+       redirect_to goals_path
+     end
    end
- end
    
   
 end
