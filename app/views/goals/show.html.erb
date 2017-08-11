@@ -15,7 +15,7 @@
     </p>
     <div class="pull-right">created: <%= time_ago_in_words(@goal.created_at) %> ago</div>
     <div class="goal-actions">
-      <% if logged_in? && current_user == @goal.user %>
+      <% if logged_in? && current_user == @goal.user || current_user.admin? %>
           <%= link_to "Edit this goal", edit_goal_path(@goal), class: "btn btn-xs btn-default" %>
           <%= link_to "Delete this goal", goal_path(@goal), method: :delete,
           data: { confirm: "Are you sure you want to delete this goal?" }, class: "btn btn-xs btn-danger" %> 

@@ -57,7 +57,7 @@ private
   end
  
    def require_same_user
-     if current_user != @goal.user
+     if current_user != @goal.user and !current_user.admin?
        flash[:danger] = "You can only edit or delete your own goals"
        redirect_to goals_path
      end
