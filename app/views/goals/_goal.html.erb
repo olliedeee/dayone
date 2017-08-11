@@ -8,9 +8,16 @@
   <div class="col-md-8 well"> <br>
     <h4>Goal Name: <%= link_to goal.name, goal_path(goal) %></h4><br>
     <h4>Goal Description:<%= truncate(goal.description, length: 100) %></h4><br>
-    <p> <span class="quiet"> <small>Created: <%= time_ago_in_words(goal.created_at) %> ago by: <%= goal.user.username %></span></p><br> </small>
+    <p> <span class="quiet"> <small>Created: <%= time_ago_in_words(goal.created_at) %> ago by: <%= link_to  goal.user.username, user_path(goal.user) %></span></p></small>
     
     <hr>
+     <% if logged_in? && current_user == goal.user %>
+
+            <%= link_to "Edit this goal", edit_goal_path(goal), class: "btn btn-xs btn-default" %>
+          <%= link_to "Delete this goal", goal_path(goal), method: :delete,
+          data: { confirm: "Are you sure you want to delete this goal?" }, class: "btn btn-xs btn-danger" %> 
+     <% end %>   
+
   </div>
 </div><!-- end row -->
 

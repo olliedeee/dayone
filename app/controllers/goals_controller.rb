@@ -1,6 +1,8 @@
 class GoalsController < ApplicationController
   
-  before_action :set_goal, only: [:edit, :show, :update]
+  before_action :set_goal, only: [:edit, :show, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
     @goals = Goal.paginate(page: params[:page], per_page: 5)
@@ -12,7 +14,7 @@ class GoalsController < ApplicationController
   
   def create
     @goal = Goal.new(goal_params)
-    @goal.user = User.first
+    @goal.user = current_user
     if @goal.save
       flash[:success] = "Goal was created successfully"
       redirect_to goal_path(@goal)
@@ -54,5 +56,12 @@ end
    @goal = Goal.find(params[:id])
   end
  
+ def require_same_user
+   if current_user != @goal.user
+     flash[:danger] = "You can only edit or delete your own goals"
+     redirect_to goals_path
+   end
+ end
+   
   
 end

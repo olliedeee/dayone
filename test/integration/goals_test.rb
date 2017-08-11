@@ -51,7 +51,8 @@ class GoalsTest < ActionDispatch::IntegrationTest
   #end
   
   
-  #test "get new goal path" do
+  #test "Create new valid goal " do
+  #    sign_in_as(@user, "password" )
   #    get new_goal_path
   #    assert_template 'goals/new'
   #    assert_no_difference 'Goal.count' do
@@ -61,4 +62,4 @@ class GoalsTest < ActionDispatch::IntegrationTest
   #    assert_select 'h2.panel-title'
   #    assert_select 'div.panel-body'
   #  end
-  end
+end
