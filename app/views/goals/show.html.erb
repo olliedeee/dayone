@@ -28,6 +28,9 @@
 
     </div>
 </div>
+
+
+
 <div class="position-comments container">
   <% if @goal.comments.any? %>
     <div class="row">
@@ -46,3 +49,30 @@
   </div>
   <% end %>
 </div>  
+<hr>
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h4> Add a new comment</h4>
+      <hr>
+      <%= form_for([@goal, @comment], :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <div class="form-group">
+          <div class="control-label col-md-2">
+            <%= f.label :description %>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_area :description, rows: 10, class: "form-control",placeholder: "Enter your comment" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <%= f.submit "Add comment", class: "btn btn-primary btn-lg btn-xlarge" %>
+          </div>
+        </div>
+      <% end %>
+      <hr>
+    </div>
+  </div>
+<% else %>
+<p> You must be logged in to post a comment.</p>
+<% end %>

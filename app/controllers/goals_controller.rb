@@ -5,6 +5,7 @@ class GoalsController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def index
+    #@goals = Goal.all
     @goals = Goal.paginate(page: params[:page], per_page: 5)
   end
   
@@ -42,7 +43,8 @@ class GoalsController < ApplicationController
   end
   
   def show
-    @comments = @goal.comments.paginate(page: params[:page], per_page: 5)
+    @comment = Comment.new
+    @comments = @goal.comments.paginate(page: params[:page], per_page: 3)
   end
   
 private
@@ -60,6 +62,4 @@ private
        redirect_to goals_path
      end
    end
-   
-  
 end

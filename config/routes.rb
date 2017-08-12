@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   get "pages/home", to: "pages#home"
   
   
-  resources :goals
+  resources :goals do
+    resources :comments, only: [:create]
+  end
+  
   resources :users, except: [:new]
   resources :categories, except: [:destroy]
   

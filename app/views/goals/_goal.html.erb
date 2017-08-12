@@ -13,7 +13,7 @@
     <% end %>
     
     <p> <span class="quiet"> <small>Created: <%= time_ago_in_words(goal.created_at) %> ago by: 
-    <%= link_to  goal.user.username.capitalize, user_path(goal.user) %></span></p></small> <hr>
+    <%= link_to  goal.user.username.capitalize, user_path(goal.user) %> | <%= pluralize(goal.comments.count, 'Comment') %></span></p></small> <hr>
     <% if logged_in? && current_user == goal.user || current_user && current_user.admin?  %>
           <%= link_to "Edit this goal", edit_goal_path(goal), class: "btn btn-xs btn-default" %>
           <%= link_to "Delete this goal", goal_path(goal), method: :delete,

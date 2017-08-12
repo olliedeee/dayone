@@ -1,4 +1,7 @@
 <%= render 'shared/pagetitle', title: "All Goals" %>
 
+<%= will_paginate @goals %>
 
 <%= render 'goal', obj: @goals %>
+
+<%= will_paginate @goals %>
