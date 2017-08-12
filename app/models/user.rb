@@ -3,6 +3,8 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
   before_save { self.username = username.downcase }
   has_many :goals, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   has_secure_password
 
 
