@@ -7,8 +7,11 @@
   </div>
 </div> <!-- row end -->
 
-
-<h4 align="center"> <%= @user.username.capitalize %>'s Goals"</h4>
-
-<%= render 'goals/goal', obj: @user.goals %>
-    
+<div> 
+<h4 align="center"> <%= @user.username.capitalize %>'s Goals</h4>
+  <% if @user.goals.any? %>
+  <%= render 'goals/goal', obj: @user.goals %>
+<% else %>
+  <h4 align="center"><%= @user.username.capitalize %> doesn't have any goals yet! </h4>
+<% end %>
+</div>    
