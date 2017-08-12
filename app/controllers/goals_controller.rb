@@ -23,9 +23,6 @@ class GoalsController < ApplicationController
     end
   end
   
-  
-  
-  
   def edit
   end
 
