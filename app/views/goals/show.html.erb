@@ -28,4 +28,21 @@
 
     </div>
 </div>
-
+<div class="position-comments container">
+  <% if @goal.comments.any? %>
+    <div class="row">
+      <div class="col-md-8-col-offset-2">
+        <h4>Comments:</h4>
+        <div id="">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-8-col-offset-2">
+        <h3> This goal has no comments yet</h3>
+      </div>
+  </div>
+  <% end %>
+</div>  
