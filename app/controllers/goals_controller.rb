@@ -42,11 +42,12 @@ class GoalsController < ApplicationController
   end
   
   def show
+    @randomtest = "This is a random test"
   end
   
 private
   def goal_params
-    params.require(:goal).permit(:name, :description)
+    params.require(:goal).permit(:name, :description, category_ids: [])
   end
   
   def set_goal

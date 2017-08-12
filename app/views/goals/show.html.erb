@@ -6,6 +6,9 @@
   <%= simple_format(@goal.description) %>
   
   <hr>
+  <% if @goal.categories.any? %>
+  <p> Categories: <%= render @goal.categories %></p>
+  <% end %>
   <div class="pull-right">
   <p class="center">   <em> Created by:</em>
   <%= link_to gravatar_for(@goal.user), user_path(@goal.user) %>
@@ -23,7 +26,6 @@
 
      <%= link_to "Return to all Goals", goals_path, class: "btn btn-xs btn-primary" %>
 
-      
     </div>
 </div>
 
