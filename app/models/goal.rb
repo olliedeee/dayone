@@ -1,6 +1,9 @@
 class Goal < ApplicationRecord
   
   belongs_to :user
+  has_many :goal_categories
+  has_many :categories, through: :goal_categories
+
 
   validates :name, presence:true, length: {minimum: 4, maximum: 240}
   validates :description, presence:true, length: {minimum: 4, maximum: 500}
