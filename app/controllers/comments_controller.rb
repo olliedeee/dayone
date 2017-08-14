@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
     @comment = @goal.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
-      flash[:success] = "Your comment was added"
-      redirect_to goal_path(@goal)
+      ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment)
+      #flash[:success] = "Your comment was added" - commented out due to actioncable addition
+      #redirect_to goal_path(@goal)
     else 
       flash[:danger] = "Comment was not saved"
       redirect_to :back

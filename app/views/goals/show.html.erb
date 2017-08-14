@@ -1,6 +1,6 @@
 <%= render 'shared/pagetitle', title: @goal.name %>
 
-<div class="well col-md-8 col-md-offset-2">
+<div class="well col-md-10 col-md-offset-1">
   
   <h4 class="center description"><strong> Description: </strong> </h4>
   <%= simple_format(@goal.description) %>
@@ -34,16 +34,16 @@
 <div class="position-comments container">
   <% if @goal.comments.any? %>
     <div class="row">
-      <div class="col-md-8-col-offset-2">
+      <div class="col-md-10-col-offset-1">
         <h4>Comments:</h4>
-        <div id="">
+        <div id="messages">
           <%= render partial: 'comments/comments', object: @comments %>
         </div>
       </div>
     </div>
   <% else %>
     <div class="row">
-      <div class="col-md-8-col-offset-2">
+      <div class="col-md-10-col-offset-1">
         <h3> This goal has no comments yet</h3>
       </div>
   </div>
@@ -52,15 +52,15 @@
 <hr>
 <% if logged_in? %>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-1">
       <h4> Add a new comment</h4>
       <hr>
-      <%= form_for([@goal, @comment], :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <%= form_for([@goal, @comment], remote: true, :html => {class: "form-horizontal", role: "form"}) do |f| %>
         <div class="form-group">
           <div class="control-label col-md-2">
             <%= f.label :description %>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-10">
             <%= f.text_area :description, rows: 10, class: "form-control",placeholder: "Enter your comment" %>
           </div>
         </div>

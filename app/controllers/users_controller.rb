@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      cookies.signed[:user_id] = @user.id
       flash[:success] = "Welcome #{@user.username} to Day One"
       redirect_to user_path(@user)
     else
