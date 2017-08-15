@@ -53,6 +53,7 @@ group :development do
   
 group :production do
   gem 'pg'
+  gem 'redis'
 end
 
 
