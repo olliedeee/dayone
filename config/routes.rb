@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
-mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
   
 end
