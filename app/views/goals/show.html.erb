@@ -31,24 +31,7 @@
 
 
 
-<div class="position-comments container">
-  <% if @goal.comments.any? %>
-    <div class="row">
-      <div class="col-md-10-col-offset-1">
-        <h4>Comments:</h4>
-        <div id="messages">
-          <%= render partial: 'comments/comments', object: @comments %>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="row">
-      <div class="col-md-10-col-offset-1">
-        <h3> This goal has no comments yet</h3>
-      </div>
-  </div>
-  <% end %>
-</div>  
+
 <hr>
 <% if logged_in? %>
   <div class="row">
@@ -76,3 +59,27 @@
 <% else %>
 <p> You must be logged in to post a comment.</p>
 <% end %>
+
+<hr>
+
+
+
+
+<div class="container comments">
+  <% if @goal.comments != 0 %>
+    <div class="row">
+      <div class="col-md-10-col-offset-1">
+        <h4>Comments:</h4>
+        <div id="messages">
+          <%= render partial: 'comments/comments', object: @comments %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="col-md-10-col-offset-1">
+        <h3> This goal has no comments yet</h3>
+      </div>
+  </div>
+  <% end %>
+</div>  

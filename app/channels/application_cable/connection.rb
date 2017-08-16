@@ -9,7 +9,7 @@ module ApplicationCable
     def disconnect
     end
 
-    protected
+  protected
     def find_current_user
       if current_auth_user = User.find_by(id: cookies.signed[:user_id])
         current_auth_user
