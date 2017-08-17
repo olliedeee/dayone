@@ -4,6 +4,10 @@ class User < ApplicationRecord
   before_save { self.username = username.downcase }
   has_many :goals, dependent: :destroy
   has_many :comments, dependent: :destroy
+  
+  #mount_uploader :profileimage, ImageUploader
+
+
 
   has_secure_password
 
