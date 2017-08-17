@@ -6,8 +6,7 @@
         <p><%= link_to gravatar_for(comment.user)%>
         <i>"<%= comment.description %>"</i>
           <small>created <%= time_ago_in_words(comment.created_at) %> ago by 
-          <%= link_to @goal.user.username, user_path(@goal.user) %></small>
-          
+          <%= link_to comment.user.username, user_path(comment.user) %></small>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <%= render 'shared/pagetitle', title: "#{@category.name.capitalize}" %>
-
+<center>
 <% if @category.goals.any? %>
 <div class="row">
   <h4 align="center"> Goals in the following categories: <%= @category.name.capitalize %></h4>
@@ -12,3 +12,4 @@
   <% end %>
   </div>
 </div>
+</center>
