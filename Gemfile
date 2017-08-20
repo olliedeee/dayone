@@ -10,6 +10,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'carrierwave', '0.11.2'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'puma', '~> 3.10'
 
 
 

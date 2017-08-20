@@ -2,4 +2,13 @@
 
 <%= render 'shared/errors', obj: @user %>
 
+
+  <div align="center">
+    <% if @user.profileimage? %>
+    Your profile image:  <br>
+    <%= image_tag @user.profileimage.url if @user.profileimage? %>
+    <% else %> You haven't uploaded a profile picture yet.
+    <% end %>
+  </div>
+  <br>
 <%= render 'form' %>
