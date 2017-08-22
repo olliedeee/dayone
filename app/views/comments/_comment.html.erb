@@ -3,7 +3,15 @@
   <div class="col-md-10 post">
     <div class="">
       <div class="">
-        <p><%= link_to gravatar_for(comment.user)%>
+        
+        <p>
+        <% if comment.user.profileimage? %>
+                <%= link_to image_tag(comment.user.profileimage,  class: "commentpic"), user_path(comment.user) %>
+            <% else %>
+                <%= link_to image_tag("user-default.png", class: "commentpic"), user_path(comment.user) %>
+            <% end %>
+        
+        
         <i>"<%= comment.description %>"</i>
           <small>created <%= time_ago_in_words(comment.created_at) %> ago by 
           <%= link_to comment.user.username, user_path(comment.user) %></small>

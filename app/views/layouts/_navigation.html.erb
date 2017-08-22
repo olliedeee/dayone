@@ -57,6 +57,13 @@
           <li><%=link_to "Create a new goal", new_goal_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              
+            <!--<% if current_user.profileimage? %>-->
+            <!--    <%= link_to image_tag(current_user.profileimage,  class: "navpic"), user_path(current_user) %>-->
+            <!--<% else %>-->
+            <!--    <%= link_to image_tag("user-default.png", class: "navpic"), user_path(current_user) %>-->
+            <!--<% end %>               -->
+            
             <%= current_user.username.capitalize %>'s <%= "(Admin)" if current_user.admin? %> Profile  <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li> <%= link_to "View your profile", user_path(current_user) %></li>     
