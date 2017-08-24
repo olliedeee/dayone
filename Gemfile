@@ -12,6 +12,7 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'puma', '~> 3.10'
 gem 'devise'
+gem 'pundit'
 
 
 
@@ -48,6 +49,9 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'listen'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :development do
