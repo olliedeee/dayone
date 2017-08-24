@@ -21,7 +21,15 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
-     
+    
+    
+   <% if notice %>
+   <center>
+   <p class="notice"><% notice %></p>
+   <% elsif alert %>
+   <p class="alert"><% alert %></p>
+   </center>
+   <% end %>
     
     <div class="container">
     <%= yield %>

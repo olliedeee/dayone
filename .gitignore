@@ -19,3 +19,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# stop public uploads going to github
+/public/uploads
+
+# hide setup_Mail.rb
+setup_mail.rb

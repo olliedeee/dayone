@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
   before_action :set_user, only: [:edit, :update, :show, :destroy]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :require_admin, only: [:destroy]
+  # before_action :require_same_user, only: [:edit, :update, :destroy]
+  # before_action :require_admin, only: [:destroy]
   
    
   def new
@@ -16,14 +16,14 @@ class UsersController < ApplicationController
  def edit
  end
  
- def update
-    if @user.update(user_params)
-      flash[:success] = "Profile updated successfully!"
-      redirect_to @user
-    else
-      render 'edit'
-    end
- end
+# def update
+#     if @user.update(user_params)
+#       flash[:success] = "Profile updated successfully!"
+#       redirect_to @user
+#     else
+#       render 'edit'
+#     end
+# end
 
    def create
     @user = User.new(user_params)
@@ -41,37 +41,37 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    if !@user.admin?
+    # if !@user.admin?
       @user.destroy
       flash[:danger] = "User and all their related goals have been deleted"
       redirect_to users_path
-    end
+    # end
   end
 
   
   
   private
   
-  def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :profileimage)
-  end
+  # def user_params
+  #   params.require(:user).permit(:username, :email, :password, :password_confirmation, :profileimage)
+  # end
   
   def set_user
     @user = User.find(params[:id])
   end
   
-  def require_same_user
-    if current_user != @user and !current_user.admin?
-      flash[:danger] = "You can only edit or delete your own account"
-      redirect_to users_path
-    end
-  end
+  # def require_same_user
+  #   if current_user != @user and !current_user.admin?
+  #     flash[:danger] = "You can only edit or delete your own account"
+  #     redirect_to users_path
+  #   end
+  # end
   
-  def require_admin
-    if logged_in && !current_user.admin?
-      flash[:danger] = "Only admin users can perform that action"
-      redirect_to root_path
-    end
-  end
+  # def require_admin
+  #   if logged_in && !current_user.admin?
+  #     flash[:danger] = "Only admin users can perform that action"
+  #     redirect_to root_path
+  #   end
+  # end
   
 end
