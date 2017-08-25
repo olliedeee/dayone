@@ -7,11 +7,11 @@ feature 'Sign in', :devise do
 		expect(page).to have_content 'Invalid Email or password.'
 	end
 
-# 	scenario 'user cannot sign in without confirming email' do
-# 		user = FactoryGirl.create(:user2)
-# 		signin(user.email, user.password)
-# 		expect(page).to have_content 'You have to confirm your email address before continuing.'
-# 	end	
+	scenario 'user cannot sign in without confirming email' do
+		user = FactoryGirl.create(:user2)
+		signin(user.email, user.password)
+		expect(page).to have_content 'You have to confirm your email address before continuing.'
+	end	
 
 	scenario 'user can sign in with valid credentials' do
 		user = FactoryGirl.create(:user)
