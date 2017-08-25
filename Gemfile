@@ -13,6 +13,8 @@ gem 'fog-aws'
 gem 'puma', '~> 3.10'
 gem 'devise'
 gem 'pundit'
+gem 'rake', '< 11.0'
+
 
 
 

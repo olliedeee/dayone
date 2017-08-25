@@ -29,7 +29,7 @@ RSpec.configure do |config|
   # config.include Devise::TestHelpers, :type => :controller
 
   # config.include Features, :type => :feature
-  # config.include Features::SessionHelpers, type: :feature
+  config.include Features::SessionHelpers, type: :feature
 
   # config.include Warden::Test::Helpers
   # config.before :suite do
@@ -68,4 +68,4 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   # config.infer_spec_type_from_file_location!
-end
+
