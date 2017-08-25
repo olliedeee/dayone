@@ -1,4 +1,16 @@
 Rails.application.configure do
+  
+  config.cache_classes = false
+  config.action_mailer.default_url_options = { host: 'https://dayone-ollieflutters.c9users.io', port: 8080 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true # to raise error if smtp has error on setup
+  config.action_mailer.default :charset => "utf-8"
+  
+  
+  
+  
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's

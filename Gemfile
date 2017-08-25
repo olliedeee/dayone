@@ -18,6 +18,7 @@ gem 'rake', '< 11.0'
 
 
 
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -54,6 +55,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+
+
 end
 
 group :development do

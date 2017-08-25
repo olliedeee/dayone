@@ -3,8 +3,9 @@ module Features
     def signin(email, password)
       visit new_user_session_path
       fill_in 'Email', with: email
-      fill_in 'password', with: password
-      click_on 'Log in'
+      fill_in 'Password', with: password
+      click_button "Log in"
+
     end
   end
 end
