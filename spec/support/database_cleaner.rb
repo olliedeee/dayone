@@ -20,6 +20,7 @@
   config.after(:each) do
     DatabaseCleaner.clean
   end
+  
     config.after :each do
     Warden.test_reset!
   end
