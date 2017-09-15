@@ -5,7 +5,7 @@
   <h4 align="center"> Goals in the following categories: <%= @category.name.capitalize %></h4>
   
   <div align ="center"> 
-  <%= will_paginate @category_goals %>
+  <!--< will_paginate @category_goals >-->
   <%= render 'goals/goal', obj: @category_goals %>
   <% else %>
     <h4 align="center"> There are no goals in the <%= @category.name.capitalize %> category yet! </h4>

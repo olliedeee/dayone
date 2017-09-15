@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
   
   def index
     #@goals = Goal.all
-    @goals = Goal.paginate(page: params[:page], per_page: 5)
+    @goals = Goal.all
   end
   
   def new
@@ -44,7 +44,7 @@ class GoalsController < ApplicationController
   
   def show
     @comment = Comment.new
-    @comments = @goal.comments.paginate(page: params[:page], per_page: 3)
+    @comments = @goal.comments.all
   end
   
 private

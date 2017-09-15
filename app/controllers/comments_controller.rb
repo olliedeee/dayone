@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
  
-  before_action :require_user
+  # before_action :require_user
   
   def create
     @goal = Goal.find(params[:goal_id])

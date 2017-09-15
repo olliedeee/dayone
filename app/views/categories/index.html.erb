@@ -1,6 +1,5 @@
 <%= render 'shared/pagetitle', title: "Explore by Category" %>
 <div align="center">
-  <%= will_paginate %>
 </div>
 <div align="center">
   <% @categories.each do |cat| %>
@@ -10,7 +9,7 @@
                    <li class="user-title"><%= link_to cat.name.capitalize, 
                                          category_path(cat) %></li>
           <li><small><%= pluralize(cat.goals.count, "goal") if cat.goals %> </small></li>
-          <% if logged_in? && current_user.admin? %>
+          <% if user_signed_in? && current_user.admin? %>
           <li><%= link_to "Edit this category", edit_category_path(cat)  %></li>
           <% end %>
         </div>

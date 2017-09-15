@@ -35,12 +35,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category_goals = @category.goals.paginate(page: params[:page], per_page: 5)
+    @category_goals = @category.goals
     
   end
   
   def index
-    @categories = Category.paginate(page: params[:page], per_page: 5)
+    @categories = Category.all
   end
   
   def destroy

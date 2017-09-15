@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :categories
+    resources :comments
+    resources :goals
+    resources :goal_categories
+
+    root to: "users#index"
+  end
+
   devise_for :user
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
@@ -21,5 +31,5 @@ Rails.application.routes.draw do
   get "/edit", to: "devise/registrations#edit"
   # get "/logout", to: "devise/sessions#destroy" 
 
-  # mount ActionCable.server => '/cable'
+  mount ActionCable.server => '/cable'
 end

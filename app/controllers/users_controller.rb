@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   
   def index
     authorize User
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @users = User.all
+    # paginate(page: params[:page], per_page: 5)
   end
  
  def edit
