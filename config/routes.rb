@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   
    root "pages#home"
   get "pages/home", to: "pages#home"
-  
+
   get "/user_dashboard", to: "users#user_dashboard"
-  
+  get '/chat', to: 'chatrooms#show'
   
   resources :goals do
     resources :comments, only: [:create]

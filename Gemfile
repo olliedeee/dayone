@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.5'
+gem 'rails', '5.1.4'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails-controller-testing'
 gem 'carrierwave', '0.11.2'

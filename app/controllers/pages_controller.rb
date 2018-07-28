@@ -7,4 +7,6 @@ end
   def admintest
     authorize User
   end
+  def cookiespage
+  end
 end

@@ -54,6 +54,8 @@
       <ul class="nav navbar-nav navbar-right">
         
         <% if user_signed_in? %>
+          <li> <%= link_to "Chat", chat_path %></li>
+
           <% if user_signed_in? && current_user.admin? %>
         <li> <%= link_to "User Dashboard", user_dashboard_path %></li>
           <% end %>

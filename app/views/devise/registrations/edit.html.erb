@@ -18,13 +18,13 @@
   
    <div class="form-group">
       <div class="control-label col-md-4 center">
-        <%= f.label :profileimage, "Add Image", class:"vertical-center" %>
+        <%= f.label :image, "Add Image", class:"vertical-center" %>
       </div>
       <div class="col-md-4">
-        <%= image_tag(resource.profileimage) %>
+        <%= image_tag(resource.image) %>
       </div>
       <div class="col-md-4">
-        <%= f.file_field :profileimage, accept: 'image/jpeg,image/gif,image/png', class:"vertical-center" %>
+        <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class:"vertical-center" %>
       </div>
   </div>
   <hr>
